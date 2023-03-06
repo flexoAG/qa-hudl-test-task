@@ -28,7 +28,7 @@ const emailTests = [
 
 //Should not be able to login with not accepted User name values
 emailTests.forEach((i) => {
-  test.only(`should not be able to login when email field is ${i.testName}`, async ({ page }) => {
+  test(`should not be able to login when email field is ${i.testName}`, async ({ page }) => {
     const homePage = new HomePage(page);
     await homePage.goto();
 
