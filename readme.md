@@ -11,7 +11,9 @@ Playwright is very easy in installation and setup if I have to compare with Sele
 Personally I really like codegen/Recorder feature, for easier way to get test base, for further editing. 
 Inbuilt Trace feature helps a lot, when tests are failing, as it helps to see recorded video which helps with debuging.
 
-As a still very fresh Playwright user, can’t say yet, what I would improve in this framework, or what is missing. 
+As a still very fresh Playwright user, can’t say yet, what I would improve in this framework, or what is missing.<br>
+
+Test runner is setup for Firefox, as while testing, I have encountered a bug, when Chromium browser was getting blocked on Windows machine and all tests were failing.
 ___
 
 ## Preparations
@@ -25,9 +27,9 @@ ___
 ```sh
 npm i
 ```
-4. Add your valid user credentials to `.env` file in the project route
+4. Add your valid existing user credentials to `.env` file in the project route, in your code editor:
 ```sh
-//Your valid user email and password
+//Your valid existing user email and password
 EMAIL=""
 PASSWORD=""
 ```

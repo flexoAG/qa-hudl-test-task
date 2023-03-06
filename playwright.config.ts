@@ -47,15 +47,15 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'], headless: false},
-    }
-
     // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'], headless: false},
-    // },
+    //   name: 'chromium',
+    //   use: { ...devices['Desktop Chrome'], headless: false},
+    // }
+
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'], headless: false},
+    },
 
     // {
     //   name: 'webkit',
