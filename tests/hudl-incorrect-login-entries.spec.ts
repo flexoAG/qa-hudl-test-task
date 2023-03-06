@@ -18,13 +18,17 @@ const emailTests = [
   },
   {
     testName: "without a domain (.com/.net/.co.uk)",
-    value: "https://www.hudl.com/login@gmail.com",
+    value: "TestinG@gmail",
   },
+  {
+    testName: "with a + sign",
+    value: "TestinG+1@gmail",
+  }
 ];
 
 //Should not be able to login with not accepted User name values
 emailTests.forEach((i) => {
-  test(`should check email field ${i.testName}`, async ({ page }) => {
+  test.only(`should not be able to login when email field is ${i.testName}`, async ({ page }) => {
     const homePage = new HomePage(page);
     await homePage.goto();
 
