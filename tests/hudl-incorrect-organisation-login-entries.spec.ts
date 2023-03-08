@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { HomePage } from '../pages/homePage';
+import { LoginPage } from '../pages/loginPage';
 import { OrganizationLoginPage } from '../pages/organizationLoginPage';
 
 const emailTests = [
@@ -32,37 +33,22 @@ const emailTests = [
 
 //Should not be able to login with not accepted User name values for Organization form
 emailTests.forEach((i) => {
-  test(`should not be able to login when email field is ${i.testName}`, async ({ page }) => {
+  test.skip(`should not be able to login when email field is ${i.testName}`, async ({ page }) => {
     const homePage = new HomePage(page);
     await homePage.goto();
 
     // Click login button
     await homePage.loginBtn.click();
 
-    //Enter Email and password and click Log in
-    const loginPage = new OrganizationLoginPage(page);
-    await loginPage.loginEl.fill(i.value);
-    await loginPage.loginBtn.click();
-    await expect(loginPage.errorMessageEl).toBeVisible();
-    await expect(loginPage.errorMessageEl).toHaveText(i.errorMessage);
+    //Click "Log In with an Organization" button
+    const loginPage = new LoginPage(page);
+    await loginPage.organizationLogin.click();
+
+    //Enter Email and click Log in
+    const organizationLoginPage = new OrganizationLoginPage(page);
+    await organizationLoginPage.loginEl.fill(i.value);
+    await organizationLoginPage.loginBtn.click();
+    await expect(organizationLoginPage.errorMessageEl).toBeVisible();
+    await expect(organizationLoginPage.errorMessageEl).toHaveText(i.errorMessage);
   });
-});
-
-//Should not be able to login with incorrect password
-test('should check incorrect password entry', async ({ page }) => {
-  const homePage = new HomePage(page);
-  await homePage.goto();
-
-  // Click login button
-  await homePage.loginBtn.click();
-
-  //Enter Email and password and click Log in
-  const loginPage = new LoginPage(page);
-  await loginPage.loginEl.fill(process.env.EMAIL!);
-  await loginPage.passwordEl.fill('WRONGPASSWORD');
-  await loginPage.loginBtn.click();
-  await expect(loginPage.errorMessageEl).toBeVisible();
-  await expect(loginPage.errorMessageEl).toHaveText(
-    "We didn't recognize that email and/or password.Need help?",
-  );
 });

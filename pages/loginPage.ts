@@ -6,7 +6,6 @@ export class LoginPage {
   readonly passwordEl: Locator;
   readonly loginBtn: Locator;
   readonly errorMessageEl: Locator;
-
   readonly hudlLogoEl: Locator;
   readonly emailLabel: Locator;
   readonly passwordLabel: Locator;
