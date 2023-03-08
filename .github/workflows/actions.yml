@@ -5,6 +5,10 @@ on:
     branches: [main, master]
   pull_request:
     branches: [main, master]
+
+env:
+  EMAIL: ${{ secrets.EMAIL}}
+  PASSWORD: ${{ secrets.PASSWORD}}
 jobs:
   test:
     timeout-minutes: 60
