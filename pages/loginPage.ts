@@ -1,4 +1,4 @@
-import { expect, Locator, Page } from "@playwright/test";
+import { expect, Locator, Page } from '@playwright/test';
 
 export class LoginPage {
   readonly page: Page;
@@ -13,14 +13,14 @@ export class LoginPage {
   readonly rememberMeCheckBtn: Locator;
   readonly needHelpBtn: Locator;
   readonly organizationLogin: Locator;
-  readonly signUpBtn: Locator
+  readonly signUpBtn: Locator;
 
   constructor(page: Page) {
     this.page = page;
-    this.loginEl = page.getByTestId("email-input");
-    this.passwordEl = page.getByTestId("password-input");
-    this.loginBtn = page.getByTestId("login-btn");
-    this.errorMessageEl = page.getByTestId("error-display");
+    this.loginEl = page.getByTestId('email-input');
+    this.passwordEl = page.getByTestId('password-input');
+    this.loginBtn = page.getByTestId('login-btn');
+    this.errorMessageEl = page.getByTestId('error-display');
 
     this.hudlLogoEl = page.getByTestId('hudl-logo');
     this.emailLabel = page.getByTestId('email-input-label');

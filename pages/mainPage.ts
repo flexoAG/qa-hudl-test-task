@@ -1,4 +1,4 @@
-import { expect, Locator, Page } from "@playwright/test";
+import { expect, Locator, Page } from '@playwright/test';
 
 export class MainPage {
   readonly page: Page;
@@ -9,8 +9,8 @@ export class MainPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.navHome = page.getByTestId("webnav-globalnav-home");
-    this.navNotifications = page.getByTestId("webnav-globalnav-notifications");
+    this.navHome = page.getByTestId('webnav-globalnav-home');
+    this.navNotifications = page.getByTestId('webnav-globalnav-notifications');
     this.navChevronBtn = page.locator('.hui-globaluseritem__display-name');
     this.dropDownMenuLogOutBtn = page.getByRole('link', { name: 'Log Out' });
   }
