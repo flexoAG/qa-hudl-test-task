@@ -35,8 +35,7 @@ test.only('should check UI elements', async ({ page }) => {
 
   //Exit to home page, and check that it's loaded
   await helpPage.backBtn.click();
-  await page.waitForTimeout(1000);
-  await expect(loginPage.hudlLogoEl).toBeVisible();
+  await expect(loginPage.loginBtn).toBeVisible();
 
 
 
